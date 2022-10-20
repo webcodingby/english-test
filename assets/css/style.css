@@ -1,0 +1,224 @@
+@font-face {
+    font-family: "MuseoSansCyrl300"; 
+    src: url("/assets/fonts/MuseoSansCyrl-300.eot"); 
+    src: url("/assets/fonts/MuseoSansCyrl-300.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/MuseoSansCyrl-300.woff") format("woff"), 
+    url("/assets/fonts/MuseoSansCyrl-300.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: 300; 
+}
+    
+@font-face {
+    font-family: "MuseoSansCyrl500"; 
+    src: url("/assets/fonts/MuseoSansCyrl-500.eot"); 
+    src: url("/assets/fonts/MuseoSansCyrl-500.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/MuseoSansCyrl-500.woff") format("woff"), 
+    url("/assets/fonts/MuseoSansCyrl-500.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: 500; 
+}
+
+@font-face {
+    font-family: "MuseoSansCyrl700"; 
+    src: url("/assets/fonts/MuseoSansCyrl-700.eot"); 
+    src: url("/assets/fonts/MuseoSansCyrl-700.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/MuseoSansCyrl-700.woff") format("woff"), 
+    url("/assets/fonts/MuseoSansCyrl-700.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: 700; 
+}
+
+@font-face {
+    font-family: "MuseoSansCyrl900"; 
+    src: url("/assets/fonts/MuseoSansCyrl-900.eot"); 
+    src: url("/assets/fonts/MuseoSansCyrl-900.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/MuseoSansCyrl-900.woff") format("woff"), 
+    url("/assets/fonts/MuseoSansCyrl-900.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: 900; 
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h3{
+    margin: 0;
+}
+
+.wrapper{
+    height: 100vh;
+}
+
+.left_wrap{
+    margin-right: 50px;
+    padding: 15px 40px;
+}
+
+.left_wrap,
+.right_wrap{
+    max-height: 240px;
+    height: 100%;
+}
+
+.wrap_bgcolor{
+    background: rgba(106,106,106,0.08);
+    padding: 15px 20px 20px;
+}
+
+.block_user h3{
+    margin-left: 20px;
+}
+
+.block_user--coins{
+    display: flex;
+    align-items: center;
+    padding: 20px 25px 0 20px;
+}
+
+.block_user--coins .coins{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.block_user--coins span {
+    font-family: 'MuseoSansCyrl700';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 43px;
+    /* or 83% */
+    text-align: center;
+    color: #242424;
+}
+
+.wrap_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 60px 20px 60px;
+}
+
+.products .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 45px;
+}
+
+.products .product:last-child{
+    margin-right: 0;
+}
+
+.products .product .product_img {
+    width: 40px;
+    margin: 10px 0 0 0;
+}
+
+.product .product_price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product .product_price img{
+    width: 14px;
+}
+
+.product_price .price{
+    margin-left: 5px;
+    font-family: 'MuseoSansCyrl700';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 13px;
+
+    /* identical to box height, or 72% */
+    text-align: center;
+
+    color: #242424;
+}
+
+.product .discount_desc{
+    display: flex;
+    align-items: center;
+}
+
+.product .discount_desc .discount{
+    padding: 4px;
+    font-family: 'MuseoSansCyrl700';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 13px;
+    /* identical to box height, or 93% */
+    text-align: center;
+    color: #FFFFFF;
+    background: #FF1A1A;
+    border-radius: 3px;
+    transform: rotate(-12.65deg);
+    margin-right: 3px;
+}
+
+.product .discount_desc .discount_test{
+    white-space: nowrap;
+    font-family: 'MuseoSansCyrl500';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 200% */
+    color: #242424;
+}
+
+.product .button_order{
+    max-width: 135px;
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FECE00;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 12px;
+    font-family: 'MuseoSansCyrl700';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    padding: 5px 15px;
+}
+
+.product .button_order.active{
+    background: #00CD52;
+    color: #FFFFFF;
+}
+
+.product .button_order:hover,
+.product .button_order:focus{
+    background: rgba(254, 206, 0, 0.6);
+}
+
+.product .button_order.active:hover,
+.product .button_order.active:focus{
+    background: rgba(0, 205, 82, 0.6);
+}
