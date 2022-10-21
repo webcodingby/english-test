@@ -1,8 +1,5 @@
 <?php
-    include_once 'backend/config/db.php';
-    include_once 'backend/files/Products.php';
-    include_once 'backend/files/Orders.php';
-    include_once 'backend/files/Coins.php';
+    include_once 'backend/files/products.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -34,6 +31,7 @@
                     <span class="price">34</span>
                     <img src="/assets/image/coin.svg" alt="">
                 </div>
+                <button class="logout">Выйти</button>
             </div>
         </div>
         <div class="right_wrap wrap_bgcolor">
