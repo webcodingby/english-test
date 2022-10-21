@@ -1,3 +1,9 @@
+<?php
+    include_once 'backend/config/db.php';
+    include_once 'backend/files/Products.php';
+    include_once 'backend/files/Orders.php';
+    include_once 'backend/files/Coins.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,6 +21,7 @@
                 <h3>Ведите логин:</h3>
                 <div class="block_user--login">
                     <input id="user_name" type="text" name="login">
+                    <span class="message_error hidden">Такого пользователя не существует</span>
                     <button class="user_button" type="button">Отправить</button>
                 </div>
             </div>
@@ -27,7 +34,6 @@
                     <span class="price">34</span>
                     <img src="/assets/image/coin.svg" alt="">
                 </div>
-                <button class="user_logout" type="button">Выйти</button>
             </div>
         </div>
         <div class="right_wrap wrap_bgcolor">
@@ -37,58 +43,21 @@
             </div>
             <div class="wrap_block">
                 <div class="products">
-                    <div class="product">
-                        <div class="product_price">
-                            <img src="/assets/image/money.svg" alt="">
-                            <span class="price">50</span>
-                            <img src="/assets/image/coin.svg" alt="">
+                    <?php foreach ($products as $product): ?>
+                        <div class="product">
+                            <div class="product_price">
+                                <img src="/assets/image/money.svg" alt="">
+                                <span class="price"><?=$product['price'];?></span>
+                                <img src="/assets/image/coin.svg" alt="">
+                            </div>
+                            <img class="product_img" src="<?=$product['image'];?>" alt="">
+                            <div class="discount_desc">
+                                <span class="discount"><?=$product['discount'];?></span>
+                                <p class="discount_test"><?=$product['description'];?></p>
+                            </div>
+                            <button type="button" class="button_order" data-id="<?=$product['id'];?>">Использовать скидку</button>
                         </div>
-                        <img class="product_img" src="/assets/image/phone.svg" alt="">
-                        <div class="discount_desc">
-                            <span class="discount">50%</span>
-                            <p class="discount_test">на звонки ST(x2)</p>
-                        </div>
-                        <button type="button" class="button_order active">Уже использовано</button>
-                    </div>
-                    <div class="product">
-                        <div class="product_price">
-                            <img src="/assets/image/money.svg" alt="">
-                            <span class="price">70</span>
-                            <img src="/assets/image/coin.svg" alt="">
-                        </div>
-                        <img class="product_img" src="/assets/image/book.svg" alt="">
-                        <div class="discount_desc">
-                            <span class="discount">30%</span>
-                            <p class="discount_test">на спецкурс</p>
-                        </div>
-                        <button type="button" class="button_order">Использовать скидку</button>
-                    </div>
-                    <div class="product">
-                        <div class="product_price">
-                            <img src="/assets/image/money.svg" alt="">
-                            <span class="price">100</span>
-                            <img src="/assets/image/coin.svg" alt="">
-                        </div>
-                        <img class="product_img" src="/assets/image/books.svg" alt="">
-                        <div class="discount_desc">
-                            <span class="discount">50%</span>
-                            <p class="discount_test">на курс</p>
-                        </div>
-                        <button type="button" class="button_order">Использовать скидку</button>
-                    </div>
-                    <div class="product">
-                        <div class="product_price">
-                            <img src="/assets/image/money.svg" alt="">
-                            <span class="price">139</span>
-                            <img src="/assets/image/coin.svg" alt="">
-                        </div>
-                        <img class="product_img" src="/assets/image/books.svg" alt="">
-                        <div class="discount_desc">
-                            <span class="discount">65%</span>
-                            <p class="discount_test">на курс</p>
-                        </div>
-                        <button type="button" class="button_order">Использовать скидку</button>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
