@@ -18,7 +18,8 @@ modalClose.addEventListener('click', function(){
 
 
 if(userId){
-    showCoins(userId);
+    showProductBuy(userId);
+    
 }
 
 
@@ -44,7 +45,31 @@ userButton.addEventListener('click', async function(){
     }
 })
 
-async function showCoins(idUser) {
+buttonArray.forEach(function(button) {
+	button.addEventListener('click', function(){
+        let productId = this.getAttribute('data-id');
+        orderBuy(userId, productId, this);
+    })
+});
+
+async function orderBuy(idUser, productId, button) {
+    let responseUser = await fetch('/backend/files/order.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body:JSON.stringify({user_id: idUser, product_id: productId})
+    });
+    let resultOrder = await responseUser.json();
+    if(resultOrder){
+        button.classList.add('active');
+        button.textContent = 'Уже использовано';
+        button.setAttribute('disabled', true)
+    }
+    
+}
+
+async function showProductBuy(idUser) {
     let responseUser = await fetch('/backend/files/user.php', {
         method: 'POST',
         headers: {
@@ -52,15 +77,17 @@ async function showCoins(idUser) {
         },
         body:JSON.stringify({id: idUser})
     });
-    var resultUser = await responseUser.json();
+    let resultUser = await responseUser.json();
     userNull.classList.add('hidden');
     userEnter.classList.remove('hidden');
     let userLength = resultUser.length;
-    for (let i = 0; i <= buttonArray.length; i++) {
-        if(i <= userLength && buttonArray[i].getAttribute('data-id') == resultUser[i].product_id){
-            buttonArray[i].classList.add('active');
-            buttonArray[i].textContent = 'Уже использовано';
-            buttonArray[i].setAttribute('disabled', true)
+    resultUser.forEach(function(el) {
+        let num = el.product_id - 1
+        if(buttonArray[num].getAttribute('data-id') == el.product_id){
+            buttonArray[num].classList.add('active');
+            buttonArray[num].textContent = 'Уже использовано';
+            buttonArray[num].setAttribute('disabled', true)
         }
-    }
+    })
 }
+
